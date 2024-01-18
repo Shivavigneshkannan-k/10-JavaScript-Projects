@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Timer</title>
+    <style>
+        /* New timer page */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin:0;
+        }
+        .form-body{
+            background-image: url(images/neom-0SUho_B0nus-unsplash.jpg);
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+        }
+        .timer-heading{
+            color: hsla(0, 0%, 0%,0.95);
+            margin-top: 1em;
+
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 2rem;
+            word-spacing: 10px;
+        }
+        .timer-form{
+            margin-top: 5em;
+            background-color: rgba(255, 255, 255,0.15);
+            backdrop-filter:blur(5px);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5em;
+            
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            color: hsla(0, 0%, 0%,0.9);
+            
+            font-size: 1.5em;
+            font-weight: 700;
+            
+            
+            
+            padding: 1em;
+            width: max-content;
+            min-height: 60vh;
+        }
+        input{
+            height: 35px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+            padding: 10px;
+            
+        }
+        input:focus{
+            outline:3px solid rgba(165, 42, 42, 0.95);
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            
+        }
+        .submit-btn{
+            margin-top: 1em;
+            width: 100%;
+            min-height: 35px;
+            border-radius: 5px;
+            border:none;
+            font-size: 1.125rem;
+            font-weight: 500;
+
+            background-color: rgba(165, 42, 42, 0.95);
+            color: #fff;
+        }
+        .submit-btn:focus{
+            background-color: rgba(165, 42, 42, 0.75);
+
+        }
+
+
+    </style>
+</head>
+<body class="form-body">
+    <!-- <h1 class="timer-heading">New Timer</h1> -->
+    <form action="#" class="timer-form">
+        <div>
+            <label for="purpose">Counter name</label><br>
+            <input type="text" name="purpose" id="purpose" required><br>
+        </div>
+        <div>
+            <label for="form-date">From</label><br>
+            <input type="date" name="from-date" id="from-date" required><br>
+        </div>
+        <div>
+            <label for="to-date">To</label><br>
+            <input type="date" name="to-date" id="to-date" required><br>
+        </div>
+        <div class="btn"><button type="submit" class="submit-btn">Submit</button></div>
+    </form>
+    
+</body>
+</html>
