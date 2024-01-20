@@ -4,15 +4,10 @@ const b_text=document.getElementsByClassName('choice')[1];
 const c_text=document.getElementsByClassName('choice')[2];
 const d_text=document.getElementsByClassName('choice')[3];
 
-const a_input=document.getElementsByClassName('option')[0];
-const b_input=document.getElementsByClassName('option')[1];
-const c_input=document.getElementsByClassName('option')[2];
-const d_input=document.getElementsByClassName('option')[3];
-
 const form=document.querySelector('form');
 const nextBtn=document.querySelector('button');
 const choice=document.querySelectorAll('input');
-
+//question array
 const Questions=[
     {
         question:"What is the capital city of South Korea?",
@@ -61,48 +56,61 @@ const Questions=[
     },
 
 ];
-let correctAnswer=0;
+
+//default question is 1st question
 let questionNumber=0;
+let correctAnswer=0;
 
-const showQuestions=()=>{
+let currentQuestion=Questions[questionNumber];
+
+questionDiv.innerText=currentQuestion.question;
+a_text.innerText=currentQuestion.a;
+b_text.innerText=currentQuestion.b;
+c_text.innerText=currentQuestion.c;
+d_text.innerText=currentQuestion.d;
+let answer=currentQuestion.answer;
+
+const loadQuiz=()=>{
+
     let currentQuestion=Questions[questionNumber];
-
+    
     questionDiv.innerText=currentQuestion.question;
     a_text.innerText=currentQuestion.a;
     b_text.innerText=currentQuestion.b;
     c_text.innerText=currentQuestion.c;
     d_text.innerText=currentQuestion.d;
-
-    if(questionNumber<Questions.length){
-        questionNumber++;
-    }
+    
+    return currentQuestion.answer;
 }
 
-let count=1;
-const nextQuestion=()=>{
-    if(count<Questions.length){
-        showQuestions(evaluate);
-        count++;
-    }
-    else{
-        alert(`Score ${correctAnswer}/${Questions.length}`);
-    }
-}
 
-const evaluate=(question)=>{
-    for(let i=0;i<choice.length;i++){
-        if(choice[i].checked){
-            console.log(choice[i].id)
-            console.log(question.answer);
-            if(choice[i].id==question.answer){
-                correctAnswer++;
-                // console.log(correctAnswer)
+nextBtn.addEventListener('click',()=>{
+    choice.forEach((option,index)=>{
+        if(!option.checked){}
+        else{
+            if(option.id==answer){
+                correctAnswer++
             }
         }
+    })
+    questionNumber++;
+    if(questionNumber<Questions.length){
+        answer=loadQuiz();
     }
-}
+    else{
+        alert(correctAnswer)
+    }
 
-showQuestions();
+});
 
-nextBtn.addEventListener('click',nextQuestion);
+
+
+
+
+
+
+
+
+
+
 
