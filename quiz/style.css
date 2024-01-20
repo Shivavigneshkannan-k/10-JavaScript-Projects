@@ -125,6 +125,19 @@ button:hover
     box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.25);
 
 }
-input{
-    place-content: A;
+
+@media (max-width: 500px){
+    .container{
+        width: 90%;
+        font-size: .85em;
+    }
+    ul{
+        width: 90%;
+    }
+    ul>li{
+        width: 90%;
+    }
+    li label{
+        gap:1em
+    }
 }
