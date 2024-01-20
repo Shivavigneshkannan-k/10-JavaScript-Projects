@@ -5,6 +5,7 @@
     margin:0;
 }
 body{
+    position: relative;
     height: 100vh;
 
     display: flex;
@@ -34,6 +35,37 @@ body{
     grid-template-rows: 1fr 3fr;
     
 }
+
+.result{
+    position: absolute;
+    background-color:rgba(225, 225, 225, 0.15);
+    backdrop-filter:blur(5px);
+    
+    
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    
+    color: rgba(0, 0, 0, 0.95);
+    font-size: 2em;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 40%;
+    min-height:40%;
+    margin-top: 2em;
+    padding: 1em;
+}
+
+#resultDiv{
+    display: none;
+}
+#score{
+    font-weight: 500;
+ }
 form{
     border-top: 2px solid rgba(0,0,0,0.75);
     
@@ -130,6 +162,11 @@ button:hover
     .container{
         width: 90%;
         font-size: .85em;
+    }
+    .result{
+        width: 80%;
+        padding: 1em;
+        
     }
     ul{
         width: 90%;

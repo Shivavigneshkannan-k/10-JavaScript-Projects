@@ -7,6 +7,16 @@ const d_text=document.getElementsByClassName('choice')[3];
 const form=document.querySelector('form');
 const nextBtn=document.querySelector('button');
 const choice=document.querySelectorAll('input');
+
+
+//
+const resultDiv=document.querySelector('#resultDiv');
+const resultText=document.getElementById('result-text');
+const emoji=document.getElementById('emoji');
+const scoreDiv=document.getElementById('score');
+
+
+
 //question array
 const Questions=[
     {
@@ -84,6 +94,23 @@ const loadQuiz=()=>{
 }
 
 
+const result=(score,noOfQuestions)=>{
+    resultText.innerHTML=` You have Scored <br> <span id="score">${score} out of ${noOfQuestions}</span>`;
+    if(score==5){
+        emoji.innerHTML="🎉WoW!";
+    }
+    else if(score>3 && score<5){
+        console.log(score);
+        emoji.innerHTML="✨Great";
+    }
+    else{
+        console.log(score);
+        emoji.innerHTML="😊";
+    }
+    
+}
+
+
 nextBtn.addEventListener('click',()=>{
     choice.forEach((option,index)=>{
         if(!option.checked){}
@@ -98,7 +125,9 @@ nextBtn.addEventListener('click',()=>{
         answer=loadQuiz();
     }
     else{
-        alert(correctAnswer)
+        resultDiv.removeAttribute("id");
+        nextBtn.style.display="none";
+        result(correctAnswer,Questions.length);
     }
 
 });
